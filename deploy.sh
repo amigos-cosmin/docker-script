@@ -1,9 +1,17 @@
 # #!/bin/bash
 
-export AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY"
-export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS"
+# check if env vars are set
+if [[ -z "${AWS_ACCESS_KEY_ID}" || -z "${AWS_SECRET_ACCESS_KEY}" ]]; then
+  echo "Error: AWS_ACCESS_KEY_ID or AWS_SECRET_ACCESS_KEY not set."
+  exit 1
+fi
 
+if [[ -z "${GITHUB_USERNAME}" || -z "${PAT}" ]]; then
+  echo "Error: GITHUB_USERNAME or PAT not set."
+  exit 1
+fi
 
+# check args for the script
 if [[ "$#" -ne 3 ]]; then
   echo "Error: Invalid number of inputs. Please provide 3 inputs: stack, env, region"
   exit 1
