@@ -1,0 +1,2 @@
+- docker build -t <image name> .
+- docker run -it -e AWS_ACCESS_KEY=<Key for aws account you want to deploy in, I used terraform-rpa-dev> -e AWS_SECRET_ACCESS=<Secret key for aws account you want to deploy in, I used terraform-rpa-dev> -e GITHUB_USERNAME=<Your github username> -e PAT=<Your Personal access token from github> <name of the image> <stack (rpa)> <env (dev)> <region(eu-west-2)>
